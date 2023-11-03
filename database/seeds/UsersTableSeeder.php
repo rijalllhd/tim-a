@@ -16,9 +16,10 @@ class UsersTableSeeder extends Seeder
     {
         //insert user pertama
         $user= new User;
-        $user->id_user_pegawai = '3';
-        $user->username = 'yuwan';
+        $user->id_user_pegawai = '1';
+        $user->username = 'rizal';
         $user->password = Hash::make('12345');
+        $user->level = '1';
         $user->save();
 
         //insert juga ke relasinya 

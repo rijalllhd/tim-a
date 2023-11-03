@@ -21,5 +21,15 @@ class PegawaiTableSeeder extends Seeder
             'telepon' => '8089',
             'alamat' => 'Cicadas',
         ]);
+
+        Pegawai::create([
+            'nama_pegawai' => 'rzal',
+            'jabatan' => 'admin',
+            'jenis_kelamin' => '2',
+            'tempat_lahir' => 'Bogor',
+            'tanggal_lahir' => '2005-10-03',
+            'telepon' => '8089',
+            'alamat' => 'Cicadas',
+        ]);
     }
 }

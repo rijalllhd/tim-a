@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
 Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/cards', [ComponentsController::class, 'cards'])->name('cards')->middleware('auth');
