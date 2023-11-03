@@ -7,18 +7,22 @@ use Illuminate\Http\Request;
 class UtilitiesController extends Controller
 {
     public function utilitiescolor() {
-        return view('utilities.color');
+        $title = "Utilities";
+        return view('utilities.color', compact('title'));
     }
 
     public function utilitiesborder() {
-        return view('utilities.border');
+        $title = "Border";
+        return view('utilities.border', compact('title'));
     }
 
     public function utilitiesother() {
-        return view('utilities.other');
+        $title = "Other";
+        return view('utilities.other', compact('title'));
     }
 
     public function utilitiesanimation() {
-        return view('utilities.animation');
+        $title = "Animation";
+        return view('utilities.animation', compact('title'));
     }
 }
