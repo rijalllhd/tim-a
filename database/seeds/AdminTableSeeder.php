@@ -12,7 +12,7 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('admin')->insert([
             'username' => 'admin',
             'password' => Hash::make('123')
         ]);

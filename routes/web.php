@@ -23,11 +23,10 @@ Route::get('/', function () {
     return view('login.index');
 });
 
-Route::get('/coba', function() {
-    return view('layouts.main');
-})->middleware('auth');
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard', [ "title"=>"dashboard"]])->name('dashboard')->middleware('auth');
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
