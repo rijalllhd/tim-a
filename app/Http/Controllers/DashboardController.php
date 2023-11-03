@@ -8,7 +8,9 @@ class DashboardController extends Controller
 {
     public function dashboard ()
     {
-        return view('dashboard.index');
+         $title = 'Dashboard'; // Data tambahan yang ingin Anda kirim ke tampilan
+
+        return view('dashboard.index', compact('title'));
     }
 
     public function dashboardadmin ()

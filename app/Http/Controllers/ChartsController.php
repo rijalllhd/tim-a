@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class ChartsController extends Controller
 {
     public function charts() {
-        return view('charts.index');
+        $title = "Charts";
+        return view('charts.index', compact('title'));
     }
 }
