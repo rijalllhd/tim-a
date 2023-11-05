@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 
 class ComponentsController extends Controller
 {
-    public function buttons () 
-    { 
-        return view('components.buttons');
+    public function buttons ()
+    {
+        $title = "Buttons";
+        return view('components.buttons', compact('title'));
     }
 
     public function cards ()
     {
-        return view('components.cards');
+        $title = "Components";
+        return view('components.cards', compact('title'));
     }
 }

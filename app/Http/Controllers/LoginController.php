@@ -17,15 +17,16 @@ class LoginController extends Controller
         $credentials = $request->only('username','password');
 
         if (Auth::attempt($credentials)) {
-            if (Pegawai::where('id', auth()->user()->id_user_pegawai)->first()) {
+
+            if (Pegawai::where('id',auth()->user()->id_user_pegawai)->first()) {
                 if (auth()->user()->level == '1') {
-                    session()->regenerate();
-                    return redirect()->intended('/dashboard');
+                session()->regenerate();
+                return redirect()->intended('/dashboard');
                 } else {
-                    session()->regenerate();
-                    return redirect()->intended('/dashboardadmin');
+                session()->regenerate();
+                return redirect()->intended('/dashboardadmin');
                 }
-            }
+            } 
             return back()->with('loginError', 'User Tidak Valid');
         }
         return back()->with('loginError', 'Username atau Password Tidak Valid');

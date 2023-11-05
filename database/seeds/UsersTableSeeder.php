@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
         $user->save();
 
         //insert juga ke relasinya 
-        $pegawai = Pegawai::where('id', 2)->first();
+        $pegawai = Pegawai::where('id', 3)->first();
         $user->$pegawai()->associate($pegawai);
         $user->save();
 
