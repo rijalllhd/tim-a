@@ -45,7 +45,7 @@
                                     @if(session()->has('loginError'))
                                       <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         {{ session('loginError') }}
-                                      </div>      
+                                      </div>
                                     @endif
                                     {{-- end --}}
                                     <form action="{{ route('login') }}" class="user" method="POST" >
