@@ -49,7 +49,29 @@
     </script>
 @endif
 
+@if(session()->has('Error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Opps!',
+            text: '{{ session('Error') }}',
+            showConfirmButton: false,
+            timer: 2500
+        });
+    </script>
+@endif
 
+@if(session()->has('ErrorPengguna'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Opps!',
+            text: '{{ session('ErrorPengguna') }}',
+            showConfirmButton: false,
+            timer: 2500
+        });
+    </script>
+@endif
 
 
 <!-- Modal -->
@@ -63,58 +85,52 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/formulir/store" method="post">
+        <form action="/pengguna/store" method="post">
             {{ csrf_field() }}
 <div class="row">
     <div class="col-sm-6">
 <div class="mb-3">
-  <label for="pegawai" class="form-label">Nama Pegawai</label>
-  <input type="text" class="form-control" name="pegawai" id="pegawai" placeholder="Masukkan Nama Pegawai">
+    <label for="pegawai" class="form-label">Nama Pegawai</label>
+    <select class="form-control" name="pegawai" id="pegawai">
+        <option value="">Pilih Pegawai</option>
+        @foreach ($pegawaiData as $id => $nama)
+            <option value="{{ $id }}">{{ $nama }}</option>
+        @endforeach
+    </select>
+</div>
+
+
+<div class="mb-3">
+  <label for="username" class="form-label">Username</label>
+  <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan Username">
 </div>
 
 <div class="mb-3">
-  <label for="jabatan" class="form-label">Jabatan</label>
-  <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan">
-</div>
-
-<div class="mb-3">
-     <label for="pegawai" class="form-label">Jenis Kelamin</label>
-  <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="L" name="flexRadioDefault" id="laki">
-  <label class="form-check-label" for="laki">
-    Laki Laki
-  </label>
-</div>
-
-        <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="P" name="flexRadioDefault" id="perempuan">
-  <label class="form-check-label" for="perempuan">
-   Perempuan
-  </label>
-</div>
+ <label for="password" class="form-label">Password</label>
+  <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
 </div>
 
     </div>
 
 <div class="col-sm-6">
-<div class="mb-3">
-  <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-  <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir">
-</div>
 
-<div class="mb-3">
-  <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Masukkan Tempat Lahir">
-</div>
 
-<div class="mb-3">
-  <label for="telepon" class="form-label">Telepon</label>
-  <input type="number" class="form-control" name="telepon" id="telepon" placeholder="Masukkan Telepon">
-</div>
 
+    <div class="mb-3">
+    <label for="level" class="form-label">Level</label>
+  <select class="form-control" name="level" id="level">
+        <option value="">Pilih Level</option>
+            <option value="1">User</option>
+            <option value="0">Admin</option>
+    </select>
+</div>
 <div class="mb-3">
-  <label for="Alamat" class="form-label">Alamat</label>
-<textarea class="form-control" id="Alamat" name="alamat" rows="3"></textarea>
+    <label for="status" class="form-label">Status</label>
+  <select class="form-control" name="status" id="status">
+        <option value="">Pilih Status</option>
+            <option value="a">Aktif</option>
+            <option value="t">Tidak Aktif</option>
+    </select>
 </div>
 
 @php
@@ -169,8 +185,8 @@ $currentDateTime = date('Y-m-d H:i:s');
 			<td>{{ $key + 1 }}</td>
 			<td>{{ $p->nama_pegawai ?: 'Data Tidak Ada' }}</td>
 			<td>{{ $p->username }}</td>
-			<td>{{ $p->username }}</td>
-			<td>{{ $p->username }}</td>
+			<td>{{ $p->level == '1' ? 'User' : 'Admin' }}</td>
+			<td>{{ $p->aktif == 'a' ? 'Aktif' : 'Tidak Aktif' }}</td>
 			<td>
 				<a href="#" data-toggle="modal" data-target="#EditModal{{$p->id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 				|
@@ -291,7 +307,7 @@ $currentDateTime = date('Y-m-d H:i:s');
         <p class="text-danger">Apakah Anda ingin menghapus data ini?</p>
         <p>Keterangan</p>
         <p>Nama Pegawai : <b>{{$p->username}}</b></p>
-        <form action="/formulir/hapus/{{ $p->id }}" method="get">
+        <form action="/pengguna/hapus/{{ $p->id }}" method="get">
                                     {{ csrf_field() }}
   <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
 
