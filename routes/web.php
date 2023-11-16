@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartsController;
+use App\Http\Controllers\TablesController;
 use App\Http\Controllers\UtilitiesController;
 
 /*
@@ -21,7 +22,7 @@ use App\Http\Controllers\UtilitiesController;
 
 Route::get('/', function () {
     return view('login.index');
-});
+})->middleware('guest');
 
 Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
@@ -42,9 +43,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
-Route::get('/tables', function() {
-    return view('tables.index');
-})->name('tables')->middleware('auth');
+Route::resource('tables', TablesController::class);
 
 Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
 Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
