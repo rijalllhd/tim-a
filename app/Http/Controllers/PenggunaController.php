@@ -68,22 +68,66 @@ public function store(Request $request)
 // update data users
 public function update(Request $request)
 {
-	// update data users
-	DB::table('users')->where('id',$request->id)->update([
-		'nama_pegawai' => $request->pegawai,
-		'jabatan' => $request->jabatan,
-		'jenis_kelamin' => $request->jk,
-		'tempat_lahir' => $request->tempat_lahir,
-		'tanggal_lahir' => $request->tanggal_lahir,
-		'telepon' => $request->telepon,
-		'alamat' => $request->alamat,
-		'updated_at' => $request->updated_at,
-	]);
-     // Set session success message
+    // Ambil data lama user dari database
+    $oldUserData = DB::table('users')->where('id', $request->id)->first();
+
+    // Validasi jika username dan pegawai tidak diubah, gunakan data lama
+    if ($oldUserData->username == $request->username) {
+        $username = $oldUserData->username;
+    } else {
+        // Jika username atau pegawai diubah, validasi apakah data sudah ada di database
+        $existingUser = DB::table('users')
+            ->where('username', $request->username)
+            ->first();
+
+        // Jika id_user_pegawai atau username sudah ada, kembalikan respons dengan pesan error
+        if ($existingUser) {
+            $request->session()->flash('Error', 'Opps, Username Sudah Ada!');
+            return redirect('/pengguna');
+        }
+
+        $username = $request->username;
+        $pegawai = $request->pegawai;
+    }
+
+    if ($oldUserData->id_user_pegawai == $request->pegawai) {
+        $pegawai = $oldUserData->id_user_pegawai;
+    } else {
+        // Jika username atau pegawai diubah, validasi apakah data sudah ada di database
+        $existingUser = DB::table('users')
+            ->where('id_user_pegawai', $request->pegawai)
+            ->first();
+
+        // Jika id_user_pegawai atau username sudah ada, kembalikan respons dengan pesan error
+        if ($existingUser) {
+            $request->session()->flash('Error', 'Opps, Nama Pegawai Sudah Ada!');
+            return redirect('/pengguna');
+        }
+
+        $username = $request->username;
+        $pegawai = $request->pegawai;
+    }
+
+    // Validasi jika password tidak diubah, gunakan password lama
+    $password = $request->password ? bcrypt($request->password) : $oldUserData->password;
+
+    // Update data users
+    DB::table('users')->where('id', $request->id)->update([
+        'id_user_pegawai' => $pegawai,
+        'username' => $username,
+        'password' => $password,
+        'level' => $request->level,
+        'aktif' => $request->status,
+        'updated_at' => $request->updated_at,
+    ]);
+
+    // Set session success message
     $request->session()->flash('Ubah', 'Data berhasil diubah!');
-	// alihkan halaman ke halaman pegawai
-	return redirect('/pengguna');
+
+    // Alihkan halaman ke halaman pegawai
+    return redirect('/pengguna');
 }
+
 
 // method untuk hapus data pegawai
 public function hapus($id)

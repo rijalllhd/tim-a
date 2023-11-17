@@ -113,9 +113,6 @@
     </div>
 
 <div class="col-sm-6">
-
-
-
     <div class="mb-3">
     <label for="level" class="form-label">Level</label>
   <select class="form-control" name="level" id="level">
@@ -215,58 +212,51 @@ $currentDateTime = date('Y-m-d H:i:s');
         </button>
       </div>
       <div class="modal-body">
-        <form action="/formulir/update" method="post">
-                                    {{ csrf_field() }}
-  <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
-
+         <form action="/pengguna/update" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
 <div class="row">
     <div class="col-sm-6">
 <div class="mb-3">
-  <label for="pegawai" class="form-label">Nama Pegawai</label>
-  <input type="text" class="form-control" name="pegawai" value="{{$p->username}}" id="pegawai" placeholder="Masukkan Nama Pegawai">
+    <label for="pegawai" class="form-label">Nama Pegawai</label>
+    <select class="form-control" name="pegawai" id="pegawai">
+        <option value="">Pilih Pegawai</option>
+        @foreach ($pegawaiData as $id => $nama)
+            <option value="{{ $id }}" {{ $id == $p->id_user_pegawai ? 'selected' : '' }}>{{ $nama }}</option>
+        @endforeach
+    </select>
+</div>
+
+
+
+<div class="mb-3">
+  <label for="username" class="form-label">Username</label>
+  <input type="text" class="form-control" name="username" value="{{$p->username}}" id="username" placeholder="Masukkan Username">
 </div>
 
 <div class="mb-3">
-  <label for="jabatan" class="form-label">Jabatan</label>
-  <input type="text" class="form-control" name="jabatan" value="{{$p->username}}" id="jabatan" placeholder="Masukkan Jabatan">
+ <label for="password" class="form-label">Password</label>
+  <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
 </div>
-
-<div class="mb-3">
-    <label for="pegawai" class="form-label">Jenis Kelamin</label>
-
-    <div class="form-check ml-2">
-        <input class="form-check-input" type="radio" name="jk" value="L" id="laki" {{ $p->username == 'l' ? 'checked' : '' }}>
-        <label class="form-check-label" for="laki">Laki Laki</label>
-    </div>
-
-    <div class="form-check ml-2">
-        <input class="form-check-input" type="radio" name="jk" value="P" id="perempuan" {{ $p->username == 'p' ? 'checked' : '' }}>
-        <label class="form-check-label" for="perempuan">Perempuan</label>
-    </div>
-</div>
-
 
     </div>
 
 <div class="col-sm-6">
-<div class="mb-3">
-  <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-  <input type="text" class="form-control" name="tempat_lahir" value="{{$p->username}}" id="tempat_lahir" placeholder="Masukkan Tempat Lahir">
+    <div class="mb-3">
+    <label for="level" class="form-label">Level</label>
+  <select class="form-control" name="level" id="level">
+        <option value="">Pilih Level</option>
+            <option value="1" {{$p->level == '1' ? 'selected' : ''}}>User</option>
+            <option value="0" {{$p->level == '0' ? 'selected' : ''}}>Admin</option>
+    </select>
 </div>
-
 <div class="mb-3">
-  <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="{{$p->username}}" placeholder="Masukkan Tempat Lahir">
-</div>
-
-<div class="mb-3">
-  <label for="telepon" class="form-label">Telepon</label>
-  <input type="number" class="form-control" name="telepon" value="{{$p->username}}" id="telepon" placeholder="Masukkan Telepon">
-</div>
-
-<div class="mb-3">
-  <label for="Alamat" class="form-label">Alamat</label>
-<textarea class="form-control" id="Alamat" name="alamat" rows="3">{{$p->username}}</textarea>
+    <label for="status" class="form-label">Status</label>
+  <select class="form-control" name="status" id="status">
+        <option value="">Pilih Status</option>
+            <option value="a" {{$p->aktif == 'a' ? 'selected' : ''}}>Aktif</option>
+            <option value="t" {{$p->aktif == 't' ? 'selected' : ''}}>Tidak Aktif</option>
+    </select>
 </div>
 
 @php
@@ -274,7 +264,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 
 $currentDateTime = date('Y-m-d H:i:s');
 @endphp
-  <input type="hidden" class="form-control" name="updated_at" id="updated_at" value="{{$currentDateTime}}">
+  <input type="hidden" class="form-control" name="created_at" id="created_at" value="{{$currentDateTime}}">
 
 <button type="submit" class="btn btn-primary">Simpan</button>
 
