@@ -46,10 +46,10 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{($title === "Dashboard")? 'active' : ''}}">
+            <li class="nav-item {{($title === "Dashboard") ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{$title}}</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
