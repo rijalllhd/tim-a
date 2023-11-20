@@ -28,13 +28,9 @@ Route::get('/', function () {
     return view('login.index');
 });
 
-Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
-
-
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
-Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/cards', [ComponentsController::class, 'cards'])->name('cards')->middleware('auth');
 
@@ -72,3 +68,5 @@ Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->
 Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
 Route::get('/utilities-other', [UtilitiesController::class, 'utilitiesother'])->name('utilities-other')->middleware('auth');
 Route::get('/utilities-animation', [UtilitiesController::class, 'utilitiesanimation'])->name('utilities-animation')->middleware('auth');
+
+Route::resource('users', UsersController::class);

@@ -10,7 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'username', 'password',
+        'id_user_pegawai','username', 'password',
     ];
 
     protected $hidden = [
