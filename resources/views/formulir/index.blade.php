@@ -76,14 +76,14 @@
 <div class="mb-3">
      <label for="pegawai" class="form-label">Jenis Kelamin</label>
   <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="L" name="flexRadioDefault" id="laki">
+  <input class="form-check-input" type="radio" name="jk" value="L"  id="laki">
   <label class="form-check-label" for="laki">
     Laki Laki
   </label>
 </div>
 
         <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="P" name="flexRadioDefault" id="perempuan">
+  <input class="form-check-input" type="radio" name="jk" value="P"  id="perempuan">
   <label class="form-check-label" for="perempuan">
    Perempuan
   </label>
