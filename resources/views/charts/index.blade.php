@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 @section('title')
     <title>SB Admin 2 - Charts</title>
 @endsection

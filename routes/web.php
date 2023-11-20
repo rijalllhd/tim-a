@@ -45,7 +45,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
-Route::resource('tables', TablesController::class);
+Route::resource('tables', 'TablesController');
 
 // Formulir pegawai ya
 Route::get('/formulir', [FormulirController::class, 'formulir'])->name('formulir')->middleware('auth');
