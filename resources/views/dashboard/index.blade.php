@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
 @endsection
 

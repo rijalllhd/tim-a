@@ -1,18 +1,14 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>SB Admin 2 - Tables</title>
+    <title>Data Pegawai</title>
 @endsection
 
 @section('body-content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
 @if(session()->has('Tambah'))
     <script>
         Swal.fire({
@@ -57,7 +53,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Tambah Pegawai</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -142,7 +138,7 @@ $currentDateTime = date('Y-m-d H:i:s');
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    <h2 class="m-0 font-weight-bold text-success">Data Pegawai</h2>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
         + Tambah Pegawai
