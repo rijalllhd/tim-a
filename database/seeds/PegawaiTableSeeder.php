@@ -13,9 +13,9 @@ class PegawaiTableSeeder extends Seeder
     public function run()
     {
         Pegawai::create([
-            'nama_pegawai' => 'rizal',
-            'jabatan' => 'Admin',
-            'jenis_kelamin' => '1',
+            'nama_pegawai' => 'Saep',
+            'jabatan' => 'Dokter',
+            'jenis_kelamin' => '2',
             'tempat_lahir' => 'Pemalang',
             'tanggal_lahir' => '2006-10-14',
             'telepon' => '8786',
