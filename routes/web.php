@@ -9,6 +9,7 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\UtilitiesController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TablesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
-Route::get('/tables', function() {
-    return view('tables.index');
-})->name('tables')->middleware('auth');
+Route::get('/tables', [TablesController::class, 'tables'])->name('tables')->middleware('auth');
 
 // Formulir pegawai ya
 Route::get('/formulir', [FormulirController::class, 'formulir'])->name('formulir')->middleware('auth');

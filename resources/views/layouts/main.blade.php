@@ -15,7 +15,7 @@
 
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -32,14 +32,14 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fa fa-hospital-o"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Klinik</div>
             </a>
 
             <!-- Divider -->
@@ -49,7 +49,7 @@
             <li class="nav-item {{($title === "Dashboard")? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{$title}}</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -64,14 +64,14 @@
             <li class="nav-item  {{($title === "Buttons") ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-fw fa-database"></i>
+                    <span>Master Data</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item {{($title === "Buttons") ? 'active' : ''}}" href="{{ route('buttons') }}">Buttons</a>
-                        <a class="collapse-item" href="{{ route('cards') }}">Cards</a>
+                        <a class="collapse-item {{($title === "Buttons") ? 'active' : ''}}" href="{{ route('formulir') }}">Data Pegawai</a>
+                        <a class="collapse-item" href="{{ route('cards') }}">Data Pengguna</a>
                     </div>
                 </div>
             </li>
@@ -125,13 +125,6 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -156,7 +149,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-success" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
