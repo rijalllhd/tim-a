@@ -34,9 +34,6 @@ Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->n
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
-Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
-Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
-Route::get('/cards', [ComponentsController::class, 'cards'])->name('cards')->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -44,8 +41,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
 Route::get('/tables', [TablesController::class, 'tables'])->name('tables')->middleware('auth');
 
@@ -68,9 +63,3 @@ Route::get('/dokter', [DokterController::class, 'dokter'])->name('dokter')->midd
 Route::post('/dokter/store', [DokterController::class, 'store'])->name('store')->middleware('auth');
 Route::post('/dokter/update', [DokterController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/dokter/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus')->middleware('auth');
-
-
-Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
-Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
-Route::get('/utilities-other', [UtilitiesController::class, 'utilitiesother'])->name('utilities-other')->middleware('auth');
-Route::get('/utilities-animation', [UtilitiesController::class, 'utilitiesanimation'])->name('utilities-animation')->middleware('auth');
