@@ -9,10 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
     {{-- Untuk title yaa --}}
     @yield('title')
-
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -21,8 +19,8 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 
@@ -70,27 +68,6 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item {{($title === 'Buttons') ? 'active' : ''}}" href="{{ route('formulir') }}">Data Pegawai</a>
-                        <a class="collapse-item {{($title === 'Buttons') ? 'active' : ''}}" href="{{ route('pengguna') }}">Data Pengguna</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="{{ route('utilities-color') }}">Colors</a>
-                        <a class="collapse-item" href="{{ route('utilities-border') }}">Borders</a>
-                        <a class="collapse-item" href="{{ route('utilities-animation') }}">Animations</a>
-                        <a class="collapse-item" href="{{ route('utilities-other') }}">Other</a>
                     </div>
                 </div>
             </li>
@@ -102,13 +79,6 @@
             <div class="sidebar-heading">
                 Addons
             </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('charts') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -340,7 +310,9 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                @yield('body-content')
+                <div class="container">
+                    @yield('body-content')
+                </div>
 
             </div>
             <!-- End of Main Content -->
