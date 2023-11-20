@@ -7,6 +7,8 @@ use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\UtilitiesController;
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,19 @@ Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->midd
 Route::get('/tables', function() {
     return view('tables.index');
 })->name('tables')->middleware('auth');
+
+// Formulir pegawai ya
+Route::get('/formulir', [FormulirController::class, 'formulir'])->name('formulir')->middleware('auth');
+Route::post('/formulir/store', [FormulirController::class, 'store'])->name('store')->middleware('auth');
+Route::post('/formulir/update', [FormulirController::class,'update'])->name('update')->middleware('auth');
+Route::get('/formulir/hapus/{id}', [FormulirController::class, 'hapus'])->name('hapus')->middleware('auth');
+
+// pengguna pegawai ya
+Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna')->middleware('auth');
+Route::post('/pengguna/store', [PenggunaController::class, 'store'])->name('store')->middleware('auth');
+Route::post('/pengguna/update', [PenggunaController::class,'update'])->name('update')->middleware('auth');
+Route::get('/pengguna/hapus/{id}', [PenggunaController::class, 'hapus'])->name('hapus')->middleware('auth');
+
 
 Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
 Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
