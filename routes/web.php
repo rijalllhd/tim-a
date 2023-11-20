@@ -26,7 +26,7 @@ use App\Http\Controllers\TablesController;
 
 Route::get('/', function () {
     return view('login.index');
-});
+})->middleware('guest');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
@@ -44,6 +44,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
 Route::get('/tables', [TablesController::class, 'tables'])->name('tables')->middleware('auth');
+
+Route::resource('pasienstable', 'PasiensTableController');
 
 // Formulir pegawai ya
 Route::get('/formulir', [FormulirController::class, 'formulir'])->name('formulir')->middleware('auth');
