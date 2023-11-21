@@ -59,7 +59,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item  {{($title === "Buttons") ? 'active' : ''}}">
+            <li class="nav-item  {{($title === "Formulir") ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-database"></i>
@@ -68,7 +68,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
+                         <a class="collapse-item {{($title === "Formulir") ? 'active' : ''}}" href="/formulir">Pegawai</a>
                     </div>
+
                 </div>
             </li>
 

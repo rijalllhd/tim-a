@@ -11,6 +11,7 @@ use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\TablesController;
+use App\Http\Controllers\PemeriksaanController;
 
 
 /*
@@ -64,6 +65,12 @@ Route::get('/dokter', [DokterController::class, 'dokter'])->name('dokter')->midd
 Route::post('/dokter/store', [DokterController::class, 'store'])->name('store')->middleware('auth');
 Route::post('/dokter/update', [DokterController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/dokter/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus')->middleware('auth');
+
+// Tabel Pemeriksaan
+Route::get('/pemeriksaan', [PemeriksaanController::class, 'pemeriksaan'])->name('pemeriksaan')->middleware('auth');
+Route::post('/pemeriksaan/store', [PemeriksaanController::class, 'store'])->name('store')->middleware('auth');
+Route::post('/pemeriksaan/update', [PemeriksaanController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/pemeriksaan/hapus/{id}', [PemeriksaanController::class, 'hapus'])->name('hapus')->middleware('auth');
 
 
 Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
