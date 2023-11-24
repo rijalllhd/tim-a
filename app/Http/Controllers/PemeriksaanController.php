@@ -11,8 +11,22 @@ class PemeriksaanController extends Controller
     public function pemeriksaan() {
     $pemeriksaan = DB::table('pemeriksaans')->get();
     $title = "Pemeriksaan";
-    $tabel_pasien = DB::table('pasien')->pluck('nama_pasien', 'id');
     $tabel_dokter = DB::table('dokters')->pluck('nama_dokter', 'id');
-    return view('formulir.pemeriksaan', ['pemeriksaan' => $pemeriksaan, 'title' => $title, 'tabel_pasien' =>  $tabel_pasien, 'tabel_dokter' => $tabel_dokter]);
+    return view('formulir.pemeriksaan', ['pemeriksaan' => $pemeriksaan, 'title' => $title, 'tabel_dokter' => $tabel_dokter]);
+    }
+
+    public function store(Request $request) {
+        $nama_dokter = DB::table('dokters')
+        ->where('nama_dokter', $request->dokter)
+        ->first();
+
+        if($nama_dokter) {
+            $request->session()->flash('Error', 'Oopss Nama Dokter Sudah Ada!');
+            return redirect('/pemeriksaan');
+        }
+
+        DB::table('pemeriksaans')->insert([
+            ''
+        ]);
     }
 }

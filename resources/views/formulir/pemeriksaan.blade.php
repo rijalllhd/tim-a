@@ -63,11 +63,11 @@
         </button>
       </div>
       <div class="modal-body">
-         <form action="/dokter/store" method="post">
+         <form action="/pemeriksaan/store" method="post">
             {{ csrf_field() }}
 <div class="row">
     <div class="col-sm-6">
-<div class="mb-3">
+{{-- <div class="mb-3">
    <label for="pasien" class="form-label">Nama Pasien</label>
     <select class="form-control" name="pasien" id="pasien">
         <option value="">Pilih Pasien</option>
@@ -75,7 +75,7 @@
             <option value="{{ $id }}">{{ $nama }}</option>
         @endforeach
     </select>
-</div>
+</div> --}}
 
 
 <div class="mb-3">
@@ -88,17 +88,27 @@
     </select>
 </div>
 
+<div class="mb-3">
+  <label for="gejala" class="form-label">Gejala</label>
+  <input type="text" class="form-control" name="gejala" id="gejala" placeholder="Masukkan Gejala">
+</div>
+
+<div class="mb-3">
+  <label for="diagnosis" class="form-label">Diagnosis</label>
+  <input type="text" class="form-control" name="diagnosis" id="diagnosis" placeholder="Masukkan Diagnosis">
+</div>
+
     </div>
 
 <div class="col-sm-6">
 <div class="mb-3">
-  <label for="nohp" class="form-label">Telepon</label>
-  <input type="number" class="form-control" name="nohp" id="nohp" placeholder="Masukkan Telepon">
+  <label for="obat" class="form-label">Obat</label>
+  <input type="number" class="form-control" name="obat" id="obat" placeholder="Masukkan Obat">
 </div>
 
 <div class="mb-3">
-  <label for="alamat" class="form-label">Alamat</label>
-  <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamar Dokter" rows="3"></textarea>
+  <label for="keterangan" class="form-label">Keterangan</label>
+  <textarea class="form-control" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan" rows="3"></textarea>
 
 </div>
 
@@ -109,17 +119,17 @@ $currentDateTime = date('Y-m-d H:i:s');
 @endphp
   <input type="hidden" class="form-control" name="created_at" id="created_at" value="{{$currentDateTime}}">
 
-<button type="submit" class="btn btn-primary">Simpan</button>
 
 </div>
 
 </div>
-</form>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
