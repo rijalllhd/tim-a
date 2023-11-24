@@ -59,7 +59,11 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+<<<<<<< HEAD
+            <li class="nav-item  {{($title === "Formulir") ? 'active' : ''}}">
+=======
             <li class="nav-item  {{ $title === 'Buttons' ? 'active' : '' }}">
+>>>>>>> ab175cc14259e542c761f549f9137296bf6060db
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-database"></i>
@@ -67,6 +71,10 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
+                        <h6 class="collapse-header">Custom Components:</h6>
+                         <a class="collapse-item {{($title === "Formulir") ? 'active' : ''}}" href="/formulir">Pegawai</a>
+=======
                         <h6 class="collapse-header">Data:</h6>
                         <a class="collapse-item {{ $title === 'Buttons' ? 'active' : '' }}"
                             href="{{ route('formulir') }}">Data Pegawai</a>
@@ -91,7 +99,9 @@
                         <a class="collapse-item" href="{{ route('utilities-border') }}">Borders</a>
                         <a class="collapse-item" href="{{ route('utilities-animation') }}">Animations</a>
                         <a class="collapse-item" href="{{ route('utilities-other') }}">Other</a>
+>>>>>>> ab175cc14259e542c761f549f9137296bf6060db
                     </div>
+
                 </div>
             </li>
 

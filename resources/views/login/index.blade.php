@@ -18,7 +18,11 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+<<<<<<< HEAD
+   <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
+=======
     <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
+>>>>>>> ab175cc14259e542c761f549f9137296bf6060db
     {{-- SweetAlert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
