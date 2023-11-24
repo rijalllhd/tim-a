@@ -59,7 +59,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item  {{($title === "Formulir") ? 'active' : ''}}">
+            <li class="nav-item  {{($title === "Pegawai") ? 'active' : ''}}">
             <li class="nav-item  {{ $title === 'Buttons' ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -68,9 +68,12 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item {{($title === 'Buttons') ? 'active' : ''}}" href="{{ route('pegawai') }}">Data Pegawai</a>
+                        <a class="collapse-item {{($title === 'Buttons') ? 'active' : ''}}" href="{{ route('pengguna') }}">Data Pengguna</a>
                         <h6 class="collapse-header">Data:</h6>
                         <a class="collapse-item {{ $title === 'Buttons' ? 'active' : '' }}"
-                            href="{{ route('formulir') }}">Data Pegawai</a>
+                            href="{{ route('pegawai') }}">Data Pegawai</a>
                         <a class="collapse-item {{ $title === 'Buttons' ? 'active' : '' }}"
                             href="{{ route('pengguna') }}">Data Pengguna</a>
                     </div>

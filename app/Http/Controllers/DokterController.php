@@ -14,7 +14,7 @@ class DokterController extends Controller
 
  $title = "Dokter";
     	// mengirim data users ke view dokter
-    	return view('formulir.dokter',['dokter' => $users,  'title' => $title]);
+    	return view('pegawai.dokter',['dokter' => $users,  'title' => $title]);
 
     }
    // method untuk insert data ke table pegawai

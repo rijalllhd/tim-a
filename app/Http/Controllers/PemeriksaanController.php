@@ -12,7 +12,7 @@ class PemeriksaanController extends Controller
     $pemeriksaan = DB::table('pemeriksaans')->get();
     $title = "Pemeriksaan";
     $tabel_dokter = DB::table('dokters')->pluck('nama_dokter', 'id');
-    return view('formulir.pemeriksaan', ['pemeriksaan' => $pemeriksaan, 'title' => $title, 'tabel_dokter' => $tabel_dokter]);
+    return view('pegawai.pemeriksaan', ['pemeriksaan' => $pemeriksaan, 'title' => $title, 'tabel_dokter' => $tabel_dokter]);
     }
 
     public function store(Request $request) {

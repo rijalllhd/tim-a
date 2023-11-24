@@ -1,14 +1,18 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>Data Pegawai</title>
+    <title>SB Admin 2 - Tables</title>
 @endsection
 
 @section('body-content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
 @if(session()->has('Tambah'))
     <script>
         Swal.fire({
@@ -53,64 +57,59 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Tambah Pegawai</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="/formulir/store" method="post">
+         <form action="/pemeriksaan/store" method="post">
             {{ csrf_field() }}
 <div class="row">
     <div class="col-sm-6">
+{{-- <div class="mb-3">
+   <label for="pasien" class="form-label">Nama Pasien</label>
+    <select class="form-control" name="pasien" id="pasien">
+        <option value="">Pilih Pasien</option>
+        @foreach ($tabel_dokter as $id => $nama)
+            <option value="{{ $id }}">{{ $nama }}</option>
+        @endforeach
+    </select>
+</div> --}}
+
+
 <div class="mb-3">
-  <label for="pegawai" class="form-label">Nama Pegawai</label>
-  <input type="text" class="form-control" name="pegawai" id="pegawai" placeholder="Masukkan Nama Pegawai">
+     <label for="dokter" class="form-label">Nama Dokter</label>
+    <select class="form-control" name="dokter" id="dokter">
+        <option value="">Pilih Dokter</option>
+        @foreach ($tabel_dokter as $id => $nama)
+            <option value="{{ $id }}">{{ $nama }}</option>
+        @endforeach
+    </select>
 </div>
 
 <div class="mb-3">
-  <label for="jabatan" class="form-label">Jabatan</label>
-  <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan">
+  <label for="gejala" class="form-label">Gejala</label>
+  <input type="text" class="form-control" name="gejala" id="gejala" placeholder="Masukkan Gejala">
 </div>
 
 <div class="mb-3">
-     <label for="pegawai" class="form-label">Jenis Kelamin</label>
-  <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="L"  id="laki">
-  <label class="form-check-label" for="laki">
-    Laki Laki
-  </label>
-</div>
-
-        <div class="form-check ml-2">
-  <input class="form-check-input" type="radio" name="jk" value="P"  id="perempuan">
-  <label class="form-check-label" for="perempuan">
-   Perempuan
-  </label>
-</div>
+  <label for="diagnosis" class="form-label">Diagnosis</label>
+  <input type="text" class="form-control" name="diagnosis" id="diagnosis" placeholder="Masukkan Diagnosis">
 </div>
 
     </div>
 
 <div class="col-sm-6">
 <div class="mb-3">
-  <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-  <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir">
+  <label for="obat" class="form-label">Obat</label>
+  <input type="number" class="form-control" name="obat" id="obat" placeholder="Masukkan Obat">
 </div>
 
 <div class="mb-3">
-  <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Masukkan Tempat Lahir">
-</div>
+  <label for="keterangan" class="form-label">Keterangan</label>
+  <textarea class="form-control" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan" rows="3"></textarea>
 
-<div class="mb-3">
-  <label for="telepon" class="form-label">Telepon</label>
-  <input type="number" class="form-control" name="telepon" id="telepon" placeholder="Masukkan Telepon">
-</div>
-
-<div class="mb-3">
-  <label for="Alamat" class="form-label">Alamat</label>
-<textarea class="form-control" id="Alamat" name="alamat" rows="3"></textarea>
 </div>
 
 @php
@@ -120,16 +119,17 @@ $currentDateTime = date('Y-m-d H:i:s');
 @endphp
   <input type="hidden" class="form-control" name="created_at" id="created_at" value="{{$currentDateTime}}">
 
-<button type="submit" class="btn btn-primary">Simpan</button>
 
 </div>
 
 </div>
-</form>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -137,10 +137,10 @@ $currentDateTime = date('Y-m-d H:i:s');
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-    <h2 class="m-0 font-weight-bold text-success">Data Pegawai</h2>
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
-        + Tambah Pegawai
+        + Tambah Dokter
     </button>
 </div>
 
@@ -150,22 +150,22 @@ $currentDateTime = date('Y-m-d H:i:s');
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Pegawai</th>
-                                            <th>Jabatan</th>
+                                             <th>No</th>
+                                            <th>Nama Dokter</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Tempat Lahir</th>
+                                            <th>Telepon</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($pegawai as $key => $p)
+                                        @foreach($pemeriksaan as $key => $p)
 		<tr>
 			<td>{{ $key + 1 }}</td>
-			<td>{{ $p->nama_pegawai }}</td>
-			<td>{{ $p->jabatan }}</td>
-            <td>{{ $p->jenis_kelamin == 'l' ? 'Laki - Laki' : 'Perempuan'}}</td>
-			<td>{{ $p->tempat_lahir }}</td>
+			<td>{{ $p->gejala }}</td>
+			<td>{{ $p->gejala }}</td>
+			<td>{{ $p->gejala }}</td>
+			<td>{{ $p->gejala }}</td>
 			<td>
 				<a href="#" data-toggle="modal" data-target="#EditModal{{$p->id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 				|
@@ -182,7 +182,7 @@ $currentDateTime = date('Y-m-d H:i:s');
                 </div>
                 <!-- /.container-fluid -->
 
-                @foreach ($pegawai as $p)
+                @foreach ($pemeriksaan as $p)
                  <!-- Edit Modal-->
   <div class="modal fade" id="EditModal{{$p->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -194,58 +194,46 @@ $currentDateTime = date('Y-m-d H:i:s');
         </button>
       </div>
       <div class="modal-body">
-        <form action="/formulir/update" method="post">
-                                    {{ csrf_field() }}
-  <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
-
+        <form action="/dokter/update" method="post">
+            {{ csrf_field() }}
+               <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
 <div class="row">
     <div class="col-sm-6">
 <div class="mb-3">
-  <label for="pegawai" class="form-label">Nama Pegawai</label>
-  <input type="text" class="form-control" name="pegawai" value="{{$p->nama_pegawai}}" id="pegawai" placeholder="Masukkan Nama Pegawai">
+  <label for="dokter" class="form-label">Nama Dokter</label>
+  <input type="text" class="form-control" name="nama_dokter" value="{{$p->gejala}}" id="nama_dokter" placeholder="Masukkan Nama Dokter">
 </div>
+
 
 <div class="mb-3">
-  <label for="jabatan" class="form-label">Jabatan</label>
-  <input type="text" class="form-control" name="jabatan" value="{{$p->jabatan}}" id="jabatan" placeholder="Masukkan Jabatan">
+     <label class="form-label">Jenis Kelamin</label>
+  <div class="form-check ml-2">
+  <input class="form-check-input" type="radio" name="jenis_kelamin" {{$p->gejala == 'L' ? 'checked' : '' }} value="L" id="laki">
+  <label class="form-check-label" for="laki">
+    Laki Laki
+  </label>
 </div>
 
-<div class="mb-3">
-    <label for="pegawai" class="form-label">Jenis Kelamin</label>
-
-    <div class="form-check ml-2">
-        <input class="form-check-input" type="radio" name="jk" value="L" id="laki" {{ $p->jenis_kelamin == 'l' ? 'checked' : '' }}>
-        <label class="form-check-label" for="laki">Laki Laki</label>
-    </div>
-
-    <div class="form-check ml-2">
-        <input class="form-check-input" type="radio" name="jk" value="P" id="perempuan" {{ $p->jenis_kelamin == 'p' ? 'checked' : '' }}>
-        <label class="form-check-label" for="perempuan">Perempuan</label>
-    </div>
+        <div class="form-check ml-2">
+  <input class="form-check-input" type="radio" name="jenis_kelamin" {{$p->gejala == 'P' ? 'checked' : '' }} value="P" id="perempuan">
+  <label class="form-check-label" for="perempuan">
+   Perempuan
+  </label>
 </div>
-
+</div>
 
     </div>
 
 <div class="col-sm-6">
 <div class="mb-3">
-  <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-  <input type="text" class="form-control" name="tempat_lahir" value="{{$p->tempat_lahir}}" id="tempat_lahir" placeholder="Masukkan Tempat Lahir">
+  <label for="nohp" class="form-label">Telepon</label>
+  <input type="number" class="form-control" name="nohp" value="{{$p->gejala}}" id="nohp" placeholder="Masukkan Telepon">
 </div>
 
 <div class="mb-3">
-  <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="{{$p->tanggal_lahir}}" placeholder="Masukkan Tempat Lahir">
-</div>
+  <label for="alamat" class="form-label">Alamat</label>
+  <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamar Dokter" rows="3">{{$p->gejala}}</textarea>
 
-<div class="mb-3">
-  <label for="telepon" class="form-label">Telepon</label>
-  <input type="number" class="form-control" name="telepon" value="{{$p->telepon}}" id="telepon" placeholder="Masukkan Telepon">
-</div>
-
-<div class="mb-3">
-  <label for="Alamat" class="form-label">Alamat</label>
-<textarea class="form-control" id="Alamat" name="alamat" rows="3">{{$p->alamat}}</textarea>
 </div>
 
 @php
@@ -263,14 +251,14 @@ $currentDateTime = date('Y-m-d H:i:s');
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Understood</button>
       </div>
     </div>
   </div>
 </div>
                 @endforeach
 
-                 @foreach ($pegawai as $p)
+                 @foreach ($pemeriksaan as $p)
                  <!-- Edit Modal-->
   <div class="modal fade" id="HapusModal{{$p->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -284,8 +272,8 @@ $currentDateTime = date('Y-m-d H:i:s');
       <div class="modal-body">
         <p class="text-danger">Apakah Anda ingin menghapus data ini?</p>
         <p>Keterangan</p>
-        <p>Nama Pegawai : <b>{{$p->nama_pegawai}}</b></p>
-        <form action="/formulir/hapus/{{ $p->id }}" method="get">
+        <p>Nama dokter : <b>{{$p->gejala}}</b></p>
+        <form action="/dokter/hapus/{{ $p->id }}" method="get">
                                     {{ csrf_field() }}
   <input type="hidden" class="form-control" name="id" value="{{$p->id}}" id="id">
 
