@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use App\Admin;
 
 class AdminTableSeeder extends Seeder
 {
@@ -12,9 +13,9 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('admin')->insert([
             'username' => 'admin',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
     }
 }
