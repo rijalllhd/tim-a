@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Pemeriksaan;
 
-class PemeriksaanSeeder extends Seeder
+class PemeriksaanTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
