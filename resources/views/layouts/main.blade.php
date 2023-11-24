@@ -59,11 +59,8 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-<<<<<<< HEAD
             <li class="nav-item  {{($title === "Formulir") ? 'active' : ''}}">
-=======
             <li class="nav-item  {{ $title === 'Buttons' ? 'active' : '' }}">
->>>>>>> ab175cc14259e542c761f549f9137296bf6060db
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-database"></i>
@@ -71,10 +68,6 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-<<<<<<< HEAD
-                        <h6 class="collapse-header">Custom Components:</h6>
-                         <a class="collapse-item {{($title === "Formulir") ? 'active' : ''}}" href="/formulir">Pegawai</a>
-=======
                         <h6 class="collapse-header">Data:</h6>
                         <a class="collapse-item {{ $title === 'Buttons' ? 'active' : '' }}"
                             href="{{ route('formulir') }}">Data Pegawai</a>
@@ -95,38 +88,28 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data:</h6>
-                        <a class="collapse-item" href="{{ route('utilities-color') }}">Colors</a>
-                        <a class="collapse-item" href="{{ route('utilities-border') }}">Borders</a>
-                        <a class="collapse-item" href="{{ route('utilities-animation') }}">Animations</a>
-                        <a class="collapse-item" href="{{ route('utilities-other') }}">Other</a>
->>>>>>> ab175cc14259e542c761f549f9137296bf6060db
+                        <a class="collapse-item" href="{{ route('dokter') }}">Data Dolter</a>
                     </div>
+                </div>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiess"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-database"></i>
+                    <span>Data Pemeriksaan</span>
+                </a>
+                <div id="collapseUtilitiess" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data:</h6>
+                        <a class="collapse-item" href="{{ route('pemeriksaan') }}">Data Pemeriksaan</a>
+                    </div>
                 </div>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('tables') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
         </ul>
         <!-- End of Sidebar -->

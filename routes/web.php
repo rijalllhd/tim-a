@@ -9,13 +9,10 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\UtilitiesController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenggunaController;
-<<<<<<< HEAD
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\TablesController;
 use App\Http\Controllers\PemeriksaanController;
 
-=======
->>>>>>> ab175cc14259e542c761f549f9137296bf6060db
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +64,6 @@ Route::post('/pengguna/store', [PenggunaController::class, 'store'])->name('stor
 Route::post('/pengguna/update', [PenggunaController::class,'update'])->name('update')->middleware('auth');
 Route::get('/pengguna/hapus/{id}', [PenggunaController::class, 'hapus'])->name('hapus')->middleware('auth');
 
-<<<<<<< HEAD
 // Untuk Dokter ya
 Route::get('/dokter', [DokterController::class, 'dokter'])->name('dokter')->middleware('auth');
 Route::post('/dokter/store', [DokterController::class, 'store'])->name('store')->middleware('auth');
@@ -80,8 +76,6 @@ Route::post('/pemeriksaan/store', [PemeriksaanController::class, 'store'])->name
 Route::post('/pemeriksaan/update', [PemeriksaanController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/pemeriksaan/hapus/{id}', [PemeriksaanController::class, 'hapus'])->name('hapus')->middleware('auth');
 
-=======
->>>>>>> ab175cc14259e542c761f549f9137296bf6060db
 
 Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
 Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
