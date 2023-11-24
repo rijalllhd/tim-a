@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdmin extends Migration
+class CreatePemeriksaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateAdmin extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('pemeriksaans', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('password');
+            $table->string('id_pasien_pemeriksaan');
+            $table->string('id_dokter_pemeriksaan');
+            $table->string('gejala');
+            $table->string('diagnosis');
+            $table->string('obat');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateAdmin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('pemeriksaans');
     }
 }

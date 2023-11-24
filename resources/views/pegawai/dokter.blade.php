@@ -242,8 +242,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Understood</button>
       </div>
     </div>
   </div>
