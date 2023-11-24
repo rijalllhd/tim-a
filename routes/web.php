@@ -9,10 +9,13 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\UtilitiesController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenggunaController;
+<<<<<<< HEAD
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\TablesController;
 use App\Http\Controllers\PemeriksaanController;
 
+=======
+>>>>>>> ab175cc14259e542c761f549f9137296bf6060db
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +30,15 @@ use App\Http\Controllers\PemeriksaanController;
 
 Route::get('/', function () {
     return view('login.index');
-})->middleware('guest');
+});
+
+Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
+
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin')->middleware('auth');
 
+Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/buttons', [ComponentsController::class, 'buttons'])->name('buttons')->middleware('auth');
 Route::get('/cards', [ComponentsController::class, 'cards'])->name('cards')->middleware('auth');
 
@@ -44,9 +51,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/charts', [ChartsController::class, 'charts'])->name('charts')->middleware('auth');
 
-Route::get('/tables', [TablesController::class, 'tables'])->name('tables')->middleware('auth');
-
-Route::resource('pasienstable', 'PasiensTableController');
+Route::get('/tables', function() {
+    return view('tables.index');
+})->name('tables')->middleware('auth');
 
 // Formulir pegawai ya
 Route::get('/formulir', [FormulirController::class, 'formulir'])->name('formulir')->middleware('auth');
@@ -60,6 +67,7 @@ Route::post('/pengguna/store', [PenggunaController::class, 'store'])->name('stor
 Route::post('/pengguna/update', [PenggunaController::class,'update'])->name('update')->middleware('auth');
 Route::get('/pengguna/hapus/{id}', [PenggunaController::class, 'hapus'])->name('hapus')->middleware('auth');
 
+<<<<<<< HEAD
 // Untuk Dokter ya
 Route::get('/dokter', [DokterController::class, 'dokter'])->name('dokter')->middleware('auth');
 Route::post('/dokter/store', [DokterController::class, 'store'])->name('store')->middleware('auth');
@@ -72,10 +80,10 @@ Route::post('/pemeriksaan/store', [PemeriksaanController::class, 'store'])->name
 Route::post('/pemeriksaan/update', [PemeriksaanController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/pemeriksaan/hapus/{id}', [PemeriksaanController::class, 'hapus'])->name('hapus')->middleware('auth');
 
+=======
+>>>>>>> ab175cc14259e542c761f549f9137296bf6060db
 
 Route::get('/utilities-color', [UtilitiesController::class, 'utilitiescolor'])->name('utilities-color')->middleware('auth');
 Route::get('/utilities-border', [UtilitiesController::class, 'utilitiesborder'])->name('utilities-border')->middleware('auth');
 Route::get('/utilities-other', [UtilitiesController::class, 'utilitiesother'])->name('utilities-other')->middleware('auth');
 Route::get('/utilities-animation', [UtilitiesController::class, 'utilitiesanimation'])->name('utilities-animation')->middleware('auth');
-
-Route::resource('users', UsersController::class);
