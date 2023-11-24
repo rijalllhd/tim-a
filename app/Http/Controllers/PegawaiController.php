@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FormulirController extends Controller
+class PegawaiController extends Controller
 {
     public function formulir() {
         // mengambil data dari table pegawais
     	$pegawais = DB::table('pegawais')->get();
 
- $title = "Formulir";
+ $title = "Pegawai";
     	// mengirim data pegawais ke view index
-    	return view('formulir.index',['pegawai' => $pegawais, 'title' => $title]);
+    	return view('pegawai.index',['pegawai' => $pegawais, 'title' => $title]);
 
     }
    // method untuk insert data ke table pegawai
@@ -35,7 +35,7 @@ public function store(Request $request)
     $request->session()->flash('Tambah', 'Data berhasil disimpan!');
 
 	// alihkan halaman ke halaman pegawai
-	return redirect('/formulir');
+	return redirect('/pegawai');
 
 }
 
@@ -56,7 +56,7 @@ public function update(Request $request)
      // Set session success message
     $request->session()->flash('Ubah', 'Data berhasil diubah!');
 	// alihkan halaman ke halaman pegawai
-	return redirect('/formulir');
+	return redirect('/pegawai');
 }
 
 // method untuk hapus data pegawai
@@ -68,8 +68,8 @@ public function hapus($id)
     // Set session success message
     request()->session()->flash('Hapus', 'Data berhasil dihapus!');
 
-    // Alihkan halaman ke halaman formulir
-    return redirect('/formulir');
+    // Alihkan halaman ke halaman pegawai
+    return redirect('/pegawai');
 }
 
 

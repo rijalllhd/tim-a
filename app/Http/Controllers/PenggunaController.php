@@ -19,7 +19,7 @@ class PenggunaController extends Controller
 
  $title = "Pengguna";
     	// mengirim data users ke view pengguna
-    	return view('formulir.pengguna',['pengguna' => $users, 'pegawaiData' => $pegawaiData, 'title' => $title]);
+    	return view('pegawai.pengguna',['pengguna' => $users, 'pegawaiData' => $pegawaiData, 'title' => $title]);
 
     }
    // method untuk insert data ke table pegawai
