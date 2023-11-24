@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pasiens;
 
 class PasiensTableController extends Controller
 {
@@ -14,7 +15,8 @@ class PasiensTableController extends Controller
     public function index()
     {
         $title = "PasiensTable";
-        return view('tables.pasiens', compact('title'));
+        $data = Pasiens::all();
+        return view('tables.pasiens', ['data'=>$data],compact('title'));
     }
 
     /**
@@ -35,7 +37,22 @@ class PasiensTableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insert data ke table pegawai
+        Pasiens::insert([
+            'nama_pasien' => $request->pasien,
+            'jenis_kelamin' => $request->jk,
+            'tempat_lahir' => $request->tl,
+            'date' => $request->date,
+            'telepon' => $request->tlp,
+            'alamat' => $request->alamat,
+            'created_at' => $request->created_at,
+
+        ]);
+        // Set session success message
+        $request->session()->flash('Tambah', 'Data berhasil disimpan!');
+
+        // alihkan halaman ke halaman pegawai
+        return redirect('/pasienstable');
     }
 
     /**
@@ -69,7 +86,20 @@ class PasiensTableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // update data pegawais
+        Pasiens::where('id_pasien',$request->id_pasien)->update([
+            'nama_pasien' => $request->pasien,
+            'jenis_kelamin' => $request->jk,
+            'tempat_lahir' => $request->tl,
+            'date' => $request->date,
+            'telepon' => $request->tlp,
+            'alamat' => $request->alamat,
+            'updated_at' => $request->updated_at,
+        ]);
+        // Set session success message
+        $request->session()->flash('Ubah', 'Data berhasil diubah!');
+        // alihkan halaman ke halaman pegawai
+        return redirect('pasienstable');
     }
 
     /**
@@ -80,6 +110,13 @@ class PasiensTableController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Menghapus data pegawai berdasarkan id yang dipilih
+        Pasiens::where('id_pasien', $id)->delete();
+
+        // Set session success message
+        request()->session()->flash('Hapus', 'Data berhasil dihapus!');
+
+        // Alihkan halaman ke halaman pengguna
+        return redirect('pasienstable');
     }
 }

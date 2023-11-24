@@ -3,10 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ChartsController;
-use App\Http\Controllers\UtilitiesController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DokterController;
@@ -44,6 +41,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/tables', [TablesController::class, 'tables'])->name('tables')->middleware('auth');
 
+// Pasien 
 Route::resource('pasienstable', 'PasiensTableController');
 
 // Formulir pegawai ya
